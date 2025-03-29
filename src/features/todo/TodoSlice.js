@@ -19,10 +19,10 @@ const todoslice = createSlice({
         addTodo: (state, action) => {
             state.todos.push({
                 id: nanoid(),
-                text: action.payload,
+                text: action.payload.text,
                 completed: false
             })
-            localStorage.setItem('todos', JSON.stringify('state.todo'))
+            localStorage.setItem('todos', JSON.stringify('state.todos'))
         },
 
         removeTodo: (state, action) => {
@@ -32,7 +32,7 @@ const todoslice = createSlice({
 
         toggleTodo: (state, action) => {
             const todo = state.todos.find(todo => todo.id === action.payload)
-            if (todo) todo.completed !== todo.completed;
+            if (todo) todo.completed = !todo.completed;
             localStorage.setItem('todos', JSON.stringify('state.todos'))
         },
 
