@@ -6,12 +6,15 @@ function DarkModeToggle() {
     const darkmode = useSelector(state => state.todos.darkmode)
     const dispatch = useDispatch()
     return (
-        <>
-            <button onClick={() => dispatch(toggleTheme())} className={darkmode ? 'dark-mode' : ''}>
-                {darkmode ? '🌙 Dark Mode' : '☀️ Light Mode'}
-            </button>
-        </>
-    )
+        <button
+            onClick={() => dispatch(toggleTheme())}
+            className={`px-4 py-2 rounded-md font-semibold transition-all ${
+                darkmode ? 'bg-gray-800 text-white' : 'bg-yellow-400 text-black'
+            }`}
+        >
+            {darkmode ? '🌙 Dark Mode' : '☀️ Light Mode'}
+        </button>
+    );
 }
 
-export default DarkModeToggle
+export default DarkModeToggle;
