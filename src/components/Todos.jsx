@@ -7,7 +7,7 @@ function Todos() {
     const filter = useSelector(state => state.todos.filter);
     const dispatch = useDispatch();
 
-    const filteredTodos = todos.filtertodo(todo =>
+    const filteredTodos = todos.filter(todo =>
         filter === 'all' ? true : filter === 'completed' ? todo.completed : !todo.completed    
     );
 
