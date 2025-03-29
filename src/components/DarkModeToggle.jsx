@@ -8,8 +8,8 @@ function DarkModeToggle() {
     return (
         <button
             onClick={() => dispatch(toggleTheme())}
-            className={`px-4 py-2 rounded-md font-semibold transition-all ${
-                darkmode ? 'bg-gray-800 text-white' : 'bg-yellow-400 text-black'
+            className={`px-4 py-2 rounded-md font-semibold transition-all mb-3 ${
+                darkmode ? 'bg-gray-800 text-white' : 'bg-yellow-400 text-black mb-3'
             }`}
         >
             {darkmode ? '🌙 Dark Mode' : '☀️ Light Mode'}
