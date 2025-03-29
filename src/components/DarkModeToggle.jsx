@@ -7,7 +7,7 @@ function DarkModeToggle() {
     const dispatch = useDispatch()
     return (
         <>
-            <button onClick={() => dispatch(toggleDarkMode())} className={darkmode ? 'dark-mode' : ''}>
+            <button onClick={() => dispatch(toggleTheme())} className={darkmode ? 'dark-mode' : ''}>
                 {darkmode ? '🌙 Dark Mode' : '☀️ Light Mode'}
             </button>
         </>
