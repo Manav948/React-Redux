@@ -1,10 +1,15 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { removeTodo } from "../features/todo/TodoSlice";
+import { removeTodo, toggleTodo, editTodo, setfilter } from "../features/todo/TodoSlice";
 
 function Todos() {
-    const todos = useSelector(state => state.todos);
+    const todos = useSelector(state => state.todos.todos);
+    const filter = useSelector(state => state.todos.filter);
     const dispatch = useDispatch();
+
+    const filtertodos = todos.filter(todo =>
+        filter === 'all' ? true : filter === 'completed' ? todo.completed : !todo.completed    
+    )
 
     return (
         <div className="mt-4 bg-gray-50 p-4 rounded-lg shadow border">
