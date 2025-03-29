@@ -1,9 +1,16 @@
 import { createSlice, nanoid } from "@reduxjs/toolkit";
+import { cache } from "react";
 
 // add local storage for todo storage
 const loadTodo = () => {
     const storeTodo = localStorage.getItem('todos')
-    return storeTodo ? JSON.parse(storeTodo) : [];
+    try {
+        const parsed = JSON.parse(storeTodo)
+        return Array.isArray(parsed) ? parsed : [];
+    }
+    catch (e){
+        return [];
+    }
 }
 
 const initialState = {
@@ -19,37 +26,37 @@ const todoslice = createSlice({
         addTodo: (state, action) => {
             state.todos.push({
                 id: nanoid(),
-                text: action.payload.text,
+                text: action.payload,
                 completed: false
             })
-            localStorage.setItem('todos', JSON.stringify('state.todos'))
+            localStorage.setItem('todos', JSON.stringify(state.todos))
         },
 
         removeTodo: (state, action) => {
             state.todos = state.todos.filter((todo) => todo.id !== action.payload)
-            localStorage.setItem('todos', JSON.stringify('state.todos'))
+            localStorage.setItem('todos', JSON.stringify(state.todos))
         },
 
         toggleTodo: (state, action) => {
             const todo = state.todos.find(todo => todo.id === action.payload)
             if (todo) todo.completed = !todo.completed;
-            localStorage.setItem('todos', JSON.stringify('state.todos'))
+            localStorage.setItem('todos', JSON.stringify(state.todos))
         },
 
         editTodo: (state, action) => {
             const todo = state.todos.find(todo => todo.id === action.payload.id)
             if (todo) todo.text !== todo.action.payload.text
-            localStorage.setItem('todos', JSON.stringify('state.todos'))
+            localStorage.setItem('todos', JSON.stringify(state.todos))
         },
         setfilter: (state, action) => {
             state.filter = action.payload
         },
         toggleTheme: (state, action) => {
             state.darkmode = !state.darkmode;
-            localStorage.setItem('theme' , state.darkmode ? 'dark' : 'light')
+            localStorage.setItem('theme', state.darkmode ? 'dark' : 'light')
         }
     },
 })
 
-export const { addTodo, removeTodo , toggleTodo , editTodo , setfilter , toggleTheme } = todoslice.actions
+export const { addTodo, removeTodo, toggleTodo, editTodo, setfilter, toggleTheme } = todoslice.actions
 export default todoslice.reducer
