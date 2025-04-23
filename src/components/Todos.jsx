@@ -16,9 +16,9 @@ function Todos() {
             <h2 className="text-xl font-semibold text-gray-800 text-center mb-3">Your Tasks</h2>
             
             <div className="flex justify-center gap-2 mb-3">
-                <button onClick={() => dispatch(setFilter('all'))} className="px-3 py-1 bg-blue-500 text-white rounded-md">All</button>
-                <button onClick={() => dispatch(setFilter('completed'))} className="px-3 py-1 bg-green-500 text-white rounded-md">Completed</button>
-                <button onClick={() => dispatch(setFilter('pending'))} className="px-3 py-1 bg-yellow-500 text-white rounded-md">Pending</button>
+                <button onClick={() => dispatch(setfilter('all'))} className="px-3 py-1 bg-blue-500 text-white rounded-md">All</button>
+                <button onClick={() => dispatch(setfilter('completed'))} className="px-3 py-1 bg-green-500 text-white rounded-md">Completed</button>
+                <button onClick={() => dispatch(setfilter('pending'))} className="px-3 py-1 bg-yellow-500 text-white rounded-md">Pending</button>
             </div>
             
             <ul className="space-y-2">

@@ -15,7 +15,7 @@ function AddTodo() {
             <input
                 type="text"
                 placeholder="Enter a task..."
-                className="flex-grow border border-gray-300 rounded-lg px-3 py-2 outline-none shadow-sm focus:ring-2 focus:ring-blue-500"
+                className="flex-grow border border-gray-300 rounded-lg px-3 py-2 outline-none shadow-sm focus:ring-2 focus:ring-blue-500 text-black"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
             />
